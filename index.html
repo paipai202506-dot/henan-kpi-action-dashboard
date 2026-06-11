@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#d7192d" />
+  <meta name="description" content="河南大区运营作战台" />
+  <title>河南大区运营作战台</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<div class="app">
+  <header class="hero">
+    <div class="hero-orb one"></div><div class="hero-orb two"></div>
+    <div class="topbar">
+      <div><p>河南大区 · 运营指导</p><h1>运营作战台</h1></div>
+      <div class="top-actions">
+        <button class="switcher" id="personSwitch"><span id="personArea">--</span><strong id="personName">加载中</strong><i></i></button>
+        <span class="developer">【开发者：老杨Roger】</span>
+      </div>
+    </div>
+    <div class="hero-main">
+      <div class="score"><p>综合绩效得分</p><strong id="scoreValue">--</strong><span id="scoreLevel">绩效区间 --</span></div>
+      <div class="hero-ranks">
+        <div><span>综合绩效榜</span><strong>第 <b id="overallRank">--</b> 名</strong></div>
+        <div><span>烤神认证榜</span><strong>第 <b id="roastRank">--</b> 名</strong></div>
+      </div>
+    </div>
+    <button class="mission-card" id="startMission">
+      <span id="missionNumber">01</span>
+      <div><p>今日首要任务</p><strong id="missionTitle">正在分析 KPI 与门店明细</strong><small id="missionReason">从排名差距定位今日动作</small></div>
+      <b>开始 ›</b>
+    </button>
+  </header>
+
+  <main>
+    <section class="section sprint-view" data-view="sprint">
+      <div class="heading"><div><p>TODAY SPRINT</p><h2>今天先做这 3 件事</h2></div><span id="snapshotDate">数据快照 06-09</span></div>
+      <div class="action-list" id="topActions"></div>
+    </section>
+    <section class="section sprint-view" data-view="sprint">
+      <div class="heading"><div><p>RANKING GAP</p><h2>排名冲刺</h2></div><button data-open-info>查看口径</button></div>
+      <div class="rank-sprint">
+        <div><span>当前综合排名</span><strong>第 <b id="rankNow">--</b> 名</strong></div>
+        <i></i>
+        <div><span>距离上一名</span><strong id="rankGap">-- 分</strong></div>
+      </div>
+      <div class="dual-progress">
+        <div><span>综合得分</span><b id="scoreProgress"></b><strong id="scoreProgressText">--</strong></div>
+        <div><span>烤神认证</span><b id="roastProgress"></b><strong id="roastProgressText">--</strong></div>
+      </div>
+    </section>
+    <section class="section sprint-view" data-view="sprint">
+      <div class="heading"><div><p>QUICK METRICS</p><h2>关键指标状态</h2></div><span>点击进入行动</span></div>
+      <div class="metric-strip" id="metricStrip"></div>
+    </section>
+
+    <section class="section radar-view" data-view="radar">
+      <div class="heading"><div><p>ACTION RADAR</p><h2>行动雷达</h2></div><span id="actionCount">-- 项待办</span></div>
+      <div class="action-list" id="allActions"></div>
+    </section>
+    <section class="section radar-view" data-view="radar">
+      <div class="heading"><div><p>TARGET STORES</p><h2>优先关注门店</h2></div><span id="storeCount">-- 家</span></div>
+      <div class="store-tabs" id="storeTabs"></div>
+      <div class="store-list" id="storeList"></div>
+    </section>
+    <section class="section radar-view" data-view="radar">
+      <div class="heading"><div><p>ONE-TAP MESSAGE</p><h2>催办话术</h2></div><button id="copyReminder">复制</button></div>
+      <div class="message" id="reminder"></div>
+    </section>
+
+    <section class="section area-view" data-view="area">
+      <div class="heading"><div><p>AREA BATTLE</p><h2>八区综合战况</h2></div><span>按平均综合得分</span></div>
+      <div class="area-list" id="areaList"></div>
+    </section>
+    <section class="section area-view" data-view="area">
+      <div class="heading"><div><p>LOCAL RIVALS</p><h2 id="peerTitle">区域指导排名</h2></div><button id="openSwitcher">切换指导</button></div>
+      <div class="rank-list" id="peerRanking"></div>
+    </section>
+
+    <section class="section mine-view" data-view="mine">
+      <div class="heading"><div><p>MY SCORECARD</p><h2>我的战绩</h2></div><span id="beatLabel">超过 -- 人</span></div>
+      <div class="my-grid" id="myGrid"></div>
+    </section>
+    <section class="section mine-view" data-view="mine">
+      <div class="heading"><div><p>KPI DIAGNOSIS</p><h2>指标诊断</h2></div><span>低于 100% 需行动</span></div>
+      <div class="diagnosis" id="diagnosis"></div>
+    </section>
+    <section class="section mine-view" data-view="mine">
+      <div class="heading"><div><p>FULL LEADERBOARD</p><h2>综合绩效榜</h2></div><span>附件原始排名</span></div>
+      <div class="rank-list" id="fullRanking"></div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav">
+    <button class="active" data-tab="sprint"><span>01</span><b>今日冲刺</b></button>
+    <button data-tab="radar"><span>02</span><b>行动雷达</b></button>
+    <button data-tab="area"><span>03</span><b>区域竞赛</b></button>
+    <button data-tab="mine"><span>04</span><b>我的战绩</b></button>
+  </nav>
+
+  <div class="backdrop" id="backdrop"></div>
+  <aside class="sheet" id="personSheet">
+    <div class="handle"></div><div class="sheet-heading"><div><p>SWITCH PLAYER</p><h2>选择运营指导</h2></div><button data-close>完成</button></div>
+    <label class="search"><span>搜索</span><input id="personSearch" placeholder="姓名、工号或区域" /></label>
+    <div class="filters" id="areaFilter"></div><div class="person-list" id="personList"></div>
+  </aside>
+  <aside class="sheet info-sheet" id="infoSheet">
+    <div class="handle"></div><div class="sheet-heading"><div><p>DATA NOTES</p><h2>数据与排名口径</h2></div><button data-close>完成</button></div>
+    <div class="info-content"><strong>唯一数据底盘</strong><p>全部内容均来自《河南大区数据看板.xlsx》本次数据快照。</p><strong>综合绩效榜</strong><p>直接使用附件“指导KPI”中的综合得分、综合排名和绩效区间。</p><strong>烤神认证榜</strong><p>根据附件“门店烤神”明细，按完成认证闭环门店数与负责门店数计算完成率后排名。</p><strong>行动雷达</strong><p>综合 KPI 未达标项、执行进度及门店明细生成优先级。页面不会自动修改原始工作簿。</p></div>
+  </aside>
+</div>
+<script src="./action-radar-data.js"></script><script src="./app.js"></script>
+</body>
+</html>
