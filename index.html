@@ -90,6 +90,90 @@
       <div class="heading"><div><p>FULL LEADERBOARD</p><h2>综合绩效榜</h2></div><span>附件原始排名</span></div>
       <div class="rank-list" id="fullRanking"></div>
     </section>
+
+    <section class="section relief-view relief-intro" data-view="relief">
+      <div class="relief-glow"></div>
+      <div class="heading relief-heading"><div><p>ONE INPUT · MANY OUTPUTS</p><h2>任务减负台</h2></div><span>演示模式</span></div>
+      <div class="relief-promise">
+        <span>05</span>
+        <div><strong>一次收集，持续复用</strong><small>把群通知自动变成任务、催办清单和汇总表</small></div>
+      </div>
+      <div class="relief-metrics">
+        <div><span>今日少填</span><strong>6<small> 次</small></strong><b>重复字段已复用</b></div>
+        <div><span>预计节省</span><strong>42<small> 分钟</small></strong><b>不再逐店翻记录</b></div>
+        <div><span>待催办</span><strong id="reliefMissingTop">8<small> 家</small></strong><b>自动生成名单</b></div>
+      </div>
+      <div class="relief-flow"><span>粘贴通知</span><i>›</i><span>自动拆解</span><i>›</i><span>一键收口</span></div>
+    </section>
+
+    <section class="section relief-view" data-view="relief">
+      <div class="heading"><div><p>SMART INTAKE</p><h2>把通知变成任务</h2></div><button id="resetTaskDemo">恢复样例</button></div>
+      <div class="task-composer">
+        <label for="taskNotice">企微群通知 / 临时要求</label>
+        <textarea id="taskNotice">请各门店今晚18:00前提交货架付款及安装进度，填写门店名称、付款状态、到货状态、安装照片；未完成的说明原因和预计完成时间。</textarea>
+        <div class="composer-foot">
+          <div><span>回收对象</span><strong>河南大区 · 26 家门店</strong></div>
+          <button id="parseTask">自动拆解任务</button>
+        </div>
+      </div>
+      <div class="quick-examples">
+        <span>换个场景试试</span>
+        <button data-task-example="培训">培训名单</button>
+        <button data-task-example="活动">活动返图</button>
+        <button data-task-example="整改">整改闭环</button>
+      </div>
+    </section>
+
+    <section class="section relief-view" data-view="relief">
+      <div class="heading"><div><p>AUTO STRUCTURE</p><h2>已拆解，可直接发布</h2></div><span id="parseStatus">识别完成</span></div>
+      <div class="parsed-task">
+        <div class="parsed-top"><span class="task-status">进行中</span><small id="taskDeadline">截止 今日 18:00</small></div>
+        <h3 id="taskTitle">货架付款与安装进度收集</h3>
+        <div class="parsed-tags" id="taskFields"></div>
+        <button class="reuse-card" id="reuseData">
+          <span><b>18 家</b><strong>基础信息可直接复用</strong><small>门店名称、区域、指导无需重复填写</small></span>
+          <em id="reuseLabel">一键引用 ›</em>
+        </button>
+        <button class="publish-task" id="publishTask"><strong>发布真实任务</strong><small>生成门店可填写的公开链接</small><b>发布 ›</b></button>
+        <div class="live-task-link" id="liveTaskLink">
+          <span><strong>任务已发布</strong><small id="liveTaskUrl"></small></span>
+          <button id="copyTaskLink">复制链接</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section relief-view" data-view="relief">
+      <div class="heading"><div><p>LIVE COLLECTION</p><h2>回收进度，一眼看清</h2></div><span id="reliefRate">69% 完成</span></div>
+      <div class="collection-card">
+        <div class="collection-stats">
+          <div><span>应提交</span><strong>26</strong></div>
+          <div><span>已提交</span><strong id="reliefDone">18</strong></div>
+          <div><span>未提交</span><strong id="reliefMissing">8</strong></div>
+          <div><span>信息缺失</span><strong id="reliefIssue">3</strong></div>
+        </div>
+        <div class="collection-progress"><b id="reliefProgress"></b></div>
+        <div class="relief-filter">
+          <button class="active" data-relief-filter="未提交">未提交 8</button>
+          <button data-relief-filter="信息缺失">信息缺失 3</button>
+          <button data-relief-filter="已完成">已完成 18</button>
+        </div>
+        <div class="relief-store-list" id="reliefStoreList"></div>
+      </div>
+    </section>
+
+    <section class="section relief-view" data-view="relief">
+      <div class="heading"><div><p>ONE-TAP OUTPUT</p><h2>不再重复整理</h2></div><span>直接拿去用</span></div>
+      <div class="output-actions">
+        <button id="makeTaskReminder"><span>催</span><strong>生成催办文案</strong><small>自动带出未提交门店</small></button>
+        <button id="exportTaskCsv"><span>表</span><strong>导出汇总表</strong><small>已按区域整理状态</small></button>
+      </div>
+      <div class="task-output" id="taskOutput">点击上方按钮，系统会根据当前回收状态生成可直接发送的内容。</div>
+      <div class="recent-tasks">
+        <div><span class="task-dot high"></span><span><strong>周末活动返图</strong><small>32 家 · 已收齐 · 节省约 35 分钟</small></span><b>已完成</b></div>
+        <div><span class="task-dot medium"></span><span><strong>培训签到名单</strong><small>18 家 · 2 家待补充</small></span><b>跟进中</b></div>
+        <div><span class="task-dot low"></span><span><strong>低星门店整改反馈</strong><small>12 家 · 明日 12:00 截止</small></span><b>待收集</b></div>
+      </div>
+    </section>
   </main>
 
   <nav class="bottom-nav">
@@ -97,6 +181,7 @@
     <button data-tab="radar"><span>02</span><b>行动雷达</b></button>
     <button data-tab="area"><span>03</span><b>区域竞赛</b></button>
     <button data-tab="mine"><span>04</span><b>我的战绩</b></button>
+    <button data-tab="relief"><span>05</span><b>任务减负</b></button>
   </nav>
 
   <div class="backdrop" id="backdrop"></div>
@@ -109,6 +194,21 @@
     <div class="handle"></div><div class="sheet-heading"><div><p>DATA NOTES</p><h2>数据与排名口径</h2></div><button data-close>完成</button></div>
     <div class="info-content"><strong>唯一数据底盘</strong><p>全部内容均来自《河南大区数据看板.xlsx》本次数据快照。</p><strong>综合绩效榜</strong><p>直接使用附件“指导KPI”中的综合得分、综合排名和绩效区间。</p><strong>烤神认证榜</strong><p>根据附件“门店烤神”明细，按完成认证闭环门店数与负责门店数计算完成率后排名。</p><strong>行动雷达</strong><p>综合 KPI 未达标项、执行进度及门店明细生成优先级。页面不会自动修改原始工作簿。</p></div>
   </aside>
+
+  <section class="task-submit-page" id="taskSubmitPage">
+    <div class="submit-hero">
+      <p>河南大区 · 任务减负台</p>
+      <h1 id="submitTaskTitle">正在打开任务</h1>
+      <span id="submitTaskMeta">请稍候</span>
+    </div>
+    <div class="submit-card">
+      <div class="submit-fields" id="submitFields"></div>
+      <div class="submit-error" id="submitError"></div>
+      <button class="submit-task-button" id="submitTaskButton">提交任务</button>
+    </div>
+    <div class="submit-success" id="submitSuccess"><strong>提交成功</strong><span>信息已经实时同步给运营指导。再次提交同一门店将覆盖原记录。</span></div>
+    <small class="submit-credit">开发者：老杨Roger</small>
+  </section>
 </div>
 <script src="./action-radar-data.js"></script><script src="./app.js"></script>
 </body>
